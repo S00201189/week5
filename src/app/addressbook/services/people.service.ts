@@ -19,15 +19,20 @@ export class PeopleService {
 
   constructor(http: HttpClient, store: PeopleStore) {
    this.http = http;
-   this.store = this.store;
+   this.store = store;
   }
 
   getAllPeople(): Observable<People[]> {
-    return this.http.get<People[]>(this.apiURL+'/api/v1/people?sortBy=LastName')
-      .pipe(
-        tap(people=>this.store.loadPeople(people, true))
-        );
-  }
+
+    return this.http.get<People[]>(this.apiURL+'/api/v1/people?sortBy=lastname')
+    
+    .pipe(
+    
+    tap(people=>this.store.loadPeople(people,true)
+    
+    ));
+    
+    }
 
   createPerson(people: People): Observable<People> {
     return this.http.post<People>(this.apiURL+'/api/v1/people', people).pipe(
