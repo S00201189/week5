@@ -10,9 +10,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let indi of people$ | async">
-        <td>{{ indi.LastName }}</td>
-        <td>{{ indi.FirstName }}</td>
-        <td>{{ indi.Phone }}</td>
+        <td>{{ indi.lastname }}</td>
+        <td>{{ indi.firstname }}</td>
+        <td>{{ indi.phone }}</td>
         <td>
           <button (click)="showUpdateForm(indi)" class="btn btn-primary" style="margin: 5px">Update</button>
           <button (click)="deletePerson(indi.id)" class="btn btn-danger" style="margin: 5px">Delete</button>

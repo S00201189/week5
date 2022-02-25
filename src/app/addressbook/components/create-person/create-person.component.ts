@@ -18,11 +18,11 @@ export class CreatePersonComponent  {
   constructor(private peopleService: PeopleService, private router: Router, private store:PeopleStore) { }
 
 
-  onSubmit(submittedForm: { value: { LastName: any; FirstName: any; Phone: any; }; invalid: any; }) {
+  onSubmit(submittedForm: { value: { lastname: any; firstname: any; phone: any; }; invalid: any; }) {
     if (submittedForm.invalid) {
       return;
     }
-    const people: People = {id: uuid.v4(), LastName: submittedForm.value.LastName,FirstName: submittedForm.value.FirstName, Phone: submittedForm.value.Phone};
+    const people: People = {id: uuid.v4(), lastname: submittedForm.value.lastname,firstname: submittedForm.value.firstname, phone: submittedForm.value.phone};
     this.createPersonSub = this.peopleService.createPerson(people).subscribe(result => {
       this.router.navigateByUrl('/people');
     });
